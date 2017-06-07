@@ -290,6 +290,27 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 
 <h3 id="toc_2">私有仓库使用</h3>
 
+<ol>
+<li>在下载config.properties文件放到工厂根目录（和gradle.properties同级）</li>
+<li>如果使用Artifactory仓库配置工程build.gradle文件请看详细文件</li>
+<li>在项目build.gradle文件中使用</li>
+</ol>
+
+<pre><code>apply from:&#39;https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintry.gradle&#39;
+    或者
+apply from:&#39;https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintry.gradle&#39;
+</code></pre>
+
+<ol>
+<li>执行相关命令即可</li>
+</ol>
+
+<pre><code>gradle uploadArchives （nexus仓库）
+或者
+gradle assembleRelease artifactoryPublish (artifactory仓库)
+
+</code></pre>
+
 <p><a href="https://coding.net/u/zdl_411437734/p/gradle/git/blob/master/Maven.md">详细使用文档</a></p>
 
 <h3 id="toc_3">Sonarqube使用</h3>
@@ -302,16 +323,21 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 <p><font size="2">不想使用提供的在线的文件配置，请自行copy下面的内容放入自己的工程中 </font></p>
 </blockquote>
 
-<p>artifactory仓库使用配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintry.gradle">artifactBintry.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/artifactBintry.gradle">下载</a><br/>
-Nexus参考配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintry.gradle">nexusBintry.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/nexusBintry.gradle">下载</a><br/>
-Config.properties配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/config.properties">config.properties</a>  <a href="http://zdl_411437734.coding.me/gradle/config.properties">下载</a><br/>
-Nexus仓库配置文件(简易版)<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/bintray.gradle">bintray.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/bintray.gradle">下载</a><br/>
-Sonarqube配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sonarqube.gradle">sonarqube.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/sonarqube.gradle">下载</a></p>
+<p>artifactory仓库使用配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintry.gradle">artifactBintry.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/artifactBintry.gradle">下载</a></p>
+
+<p>Nexus参考配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintry.gradle">nexusBintry.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/nexusBintry.gradle">下载</a></p>
+
+<p>Config.properties配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/config.properties">config.properties</a>  <a href="http://zdl_411437734.coding.me/gradle/config.properties">下载</a></p>
+
+<p>Nexus仓库配置文件(简易版)<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/bintray.gradle">bintray.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/bintray.gradle">下载</a></p>
+
+<p>Sonarqube配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sonarqube.gradle">sonarqube.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/sonarqube.gradle">下载</a></p>
 
 <h3 id="toc_5">联系我们</h3>
 
-<p>Email:<a href="mailto:411437734@qq.com">411437734@qq.com</a><br/>
-个人博客：<a href="http://www.etongwl.com">http://www.etongwl.com</a></p>
+<p>Email:<a href="mailto:411437734@qq.com">411437734@qq.com</a></p>
+
+<p>个人博客：<a href="http://www.etongwl.com">http://www.etongwl.com</a></p>
 
 </div></body>
 

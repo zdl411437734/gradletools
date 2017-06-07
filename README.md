@@ -7,6 +7,24 @@
 > 欢迎各位小伙伴们来砸场，喜欢请star下...</font>
 
 ### 私有仓库使用
+1. 在下载config.properties文件放到工厂根目录（和gradle.properties同级）
+2. 如果使用Artifactory仓库配置工程build.gradle文件请看详细文件
+3. 在项目build.gradle文件中使用
+
+```
+apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintry.gradle'
+    或者
+apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintry.gradle'
+```
+4. 执行相关命令即可
+    
+```
+gradle uploadArchives （nexus仓库）
+或者
+gradle assembleRelease artifactoryPublish (artifactory仓库)
+
+```
+
 [详细使用文档](https://coding.net/u/zdl_411437734/p/gradle/git/blob/master/Maven.md)
 
 ### Sonarqube使用
@@ -34,6 +52,7 @@ Sonarqube配置文件[sonarqube.gradle](https://coding.net/u/zdl_411437734/p/gra
 
 ###联系我们
 Email:411437734@qq.com
+
 个人博客：[http://www.etongwl.com](http://www.etongwl.com)
 
 

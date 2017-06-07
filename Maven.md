@@ -182,6 +182,89 @@ gradle uploadArchives
 ```
 执行成功就可以看到项目arr在你的私有仓库中。
 
+### config.properties文件说明
+config.properties文件存放到工程更目录和gradle.propterties同目录下
+内容如下
+
+```
+## Project-wide Gradle settings.
+#
+# For more details on how to configure your build environment visit
+# http://www.gradle.org/docs/current/userguide/build_environment.html
+#
+# Specifies the JVM arguments used for the daemon process.
+# The setting is particularly useful for tweaking memory settings.
+# Default value: -Xmx1024m -XX:MaxPermSize=256m
+# org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+#
+# When configured, Gradle will run in incubating parallel mode.
+# This option should only be used with decoupled projects. More details, visit
+# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+# org.gradle.parallel=true
+#Wed Mar 29 15:10:41 CST 2017
+#systemProp.http.proxyHost=127.0.0.1
+org.gradle.jvmargs=-Xmx2048m -XX\:MaxPermSize\=512m -XX\:+HeapDumpOnOutOfMemoryError -Dfile.encoding\=UTF-8
+#systemProp.http.proxyPort=1080
+#公共参数
+version_name="1.0.0"
+group_id="包名"
+artifact_id=项目名称
+#例如
+#version_name="1.0.0"
+#group_id="com.etongwl.common"
+#artifact_id="Common_lib"
+
+#artifactory仓库配置
+artifactory_user=用户名
+artifactory_password=密码
+artifactory_repoKey=仓库名称
+artifactory_contextUrl=请求地址
+#例如
+#artifactory_user=admin
+#artifactory_password=admin
+#artifactory_repoKey=android-dev-local
+#artifactory_contextUrl=http://xxxxxxx/artifactory
+
+# nexus 仓库配置
+nexus_user=用户名
+nexus_password=密码
+nexus_contextUrl=请求地址/仓库名
+#例如
+#nexus_user=admin
+#nexus_password=admin
+#nexus_contextUrl=http://xxxxx:8081/nexus/content/repositories/releases/
+
+
+
+
+#sonar配置
+systemProp.sonar.host.url=http://192.168.0.251:9000
+sonar_projectBaseDir=
+sonar_user=用户名
+sonar_password=密码
+sonar_host_url=地址
+sonar_sources=源码路径
+sonar_projectKey=项目key
+sonar_projectName=项目名称
+sonar_projectVersion=项目版本
+#例如
+#sonarqube {
+#     properties {
+#         property "sonar.projectBaseDir", "${project.rootDir}/${project.name}/"
+#         property "sonar.host.url", "http://192.168.0.251:9000"
+#         property "sonar.login", "admin"
+#         property "sonar.password", "admin"
+#         property "sonar.exclusions", "**/exclude/**"
+#         property "sonar.sources", "${project.rootDir}/${project.name}/src/main/java"
+#         property "sonar.binaries", "$project.buildDir/intermediates/classes/"
+#         property "sonar.projectKey", "sdk:${project.name}"
+#         property "sonar.projectName", project.name
+#         property "sonar.projectVersion", "1.0.0"
+#         property "sonar.projectDescription", project.name
+#         property "sonar.scm.disabled",true
+#     }
+# }
+```
 ### 仓库引用
 1. 在工程buid.gradle文件中配置如下内容
 
