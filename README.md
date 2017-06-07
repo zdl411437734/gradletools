@@ -17,9 +17,17 @@
 >
 
 artifactory仓库使用配置文件[artifactBintry.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintry.gradle)  [下载](http://zdl_411437734.coding.me/gradle/artifactBintry.gradle)
+
+
 Nexus参考配置文件[nexusBintry.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintry.gradle)  [下载](http://zdl_411437734.coding.me/gradle/nexusBintry.gradle)
+
+
 Config.properties配置文件[config.properties](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/config.properties)  [下载](http://zdl_411437734.coding.me/gradle/config.properties)
+
+
 Nexus仓库配置文件(简易版)[bintray.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/bintray.gradle)  [下载](http://zdl_411437734.coding.me/gradle/bintray.gradle)
+
+
 Sonarqube配置文件[sonarqube.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sonarqube.gradle)  [下载](http://zdl_411437734.coding.me/gradle/sonarqube.gradle)
 
 
