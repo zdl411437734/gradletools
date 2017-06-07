@@ -7,10 +7,10 @@
 > 欢迎各位小伙伴们来砸场，喜欢请star下...</font>
 
 ### 私有仓库使用
-[参考文档](http://zdl_411437734.coding.me/gradle/SONARQUBE.md)
+[详细使用文档](https://coding.net/u/zdl_411437734/p/gradle/git/blob/master/Maven.md)
 
 ### Sonarqube使用
-[参考文档](http://zdl_411437734.coding.me/gradle/SONARQUBE.md)
+[详细使用文档](https://coding.net/u/zdl_411437734/p/gradle/git/blob/master/SONARQUBE.md)
 
 ###联系我们
 Email:411437734@qq.com
