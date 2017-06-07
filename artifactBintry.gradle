@@ -1,0 +1,72 @@
+apply plugin: "com.jfrog.artifactory"
+apply plugin: "maven-publish"
+
+Properties properties = new Properties();
+properties.load(project.rootProject.file('config.properties').newDataInputStream());
+def ARTFACTORY_CONTEXTURL =properties.getProperty("artifactory_contextUrl")
+def ARTFACTORY_REPOKEY =properties.getProperty("artifactory_repoKey")
+def USER =properties.getProperty("artifactory_user")
+def PWD =properties.getProperty("artifactory_password")
+def ARTIFACT_ID = properties.getProperty("artifact_id")
+def VERSION_NAME = properties.getProperty("version_name")
+def GROUP_ID = properties.getProperty("group_id")
+
+def packageName = GROUP_ID
+def libraryVersion = VERSION_NAME
+
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId packageName
+            version = libraryVersion
+            artifactId ARTIFACT_ID
+            // Tell maven to prepare the generated “*.aar” file for publishing
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+            artifact androidJavadocsJar
+            artifact androidSourcesJar
+        }
+
+    }
+}
+
+artifactory {
+    contextUrl = ARTFACTORY_CONTEXTURL
+    publish {
+        repository {
+            repoKey = ARTFACTORY_REPOKEY
+            username = USER
+            password = PWD
+            maven = true
+        }
+        defaults {
+            publications('aar')
+            publishArtifacts = true
+
+            properties = ['qa.level': 'basic', 'q.os': 'android', 'dev.team': 'core']
+            publishPom = true
+            maven = true
+        }
+    }
+}
+
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath +=    project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+}

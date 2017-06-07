@@ -1,0 +1,31 @@
+apply plugin: 'org.sonarqube'
+
+
+Properties properties = new Properties();
+properties.load(project.rootProject.file('config.properties').newDataInputStream());
+def sonar_projectBaseDir =properties.getProperty("sonar_projectBaseDir")
+def USER =properties.getProperty("sonar_user")
+def PWD =properties.getProperty("sonar_password")
+def sonar_host_url = properties.getProperty("sonar_host_url")
+def sonar_sources = properties.getProperty("sonar_sources")
+def projectKey = properties.getProperty("sonar_projectKey")
+def projectName = properties.getProperty("sonar_projectName")
+def projectVersion = properties.getProperty("sonar_projectVersion")
+
+
+sonarqube {
+     properties {
+            property "sonar.projectBaseDir", sonar_projectBaseDir
+            property "sonar.host.url", sonar_host_url
+            property "sonar.login", USER
+            property "sonar.password", PWD
+            property "sonar.exclusions", "**/exclude/**"
+            property "sonar.sources", sonar_sources
+            property "sonar.binaries", "$project.buildDir/intermediates/classes/"
+            property "sonar.projectKey", projectKey
+            property "sonar.projectName", projectName
+            property "sonar.projectVersion", projectVersion
+            property "sonar.projectDescription", projectName
+            property "sonar.scm.disabled",true
+    }
+}
