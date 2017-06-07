@@ -17,7 +17,7 @@
 3. 在项目（module）build.gradle文件中配置
         
         apply from:'artifactBintry.gradle'
-        或则 apply from:'http://xxxx/artifactBintry.gradle'
+        或则 apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintry.gradle'
         
 4. artifactBintry.gradle内容为
 
@@ -119,7 +119,7 @@ artifacts {
 2. 在项目（module）build.gradle文件中配置
         
         apply from:'nexusBintry.gradle'
-        或则 apply from:'http://xxxx/nexusBintry.gradle'
+        或则 apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBintry.gradle'
 
 3. nexusBintry.gradle内容为
 
