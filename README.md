@@ -30,6 +30,31 @@ gradle assembleRelease artifactoryPublish (artifactory仓库)
 ### Sonarqube使用
 [详细使用文档](https://coding.net/u/zdl_411437734/p/gradle/git/blob/master/SONARQUBE.md)
 
+### pack（打包）使用
+> <font size="2">经常打包apk，有一个困扰，怎么修改打包后的名称，怎么区分打包的是release版本还是debug版本，想了解请继续看</font>
+
+1. 在项目的buil.gradle文件配置打包的版本和输出的名称
+    
+```
+//打包APK根据不同的环境打包不同的名称
+ext{
+    productName = project.name
+    versionName = "1.0.1"
+}
+//productName 打包出来的名称
+//versionName 打包显示版本号
+```
+2. 引入packe.gradle文件[下载packe.gradle](http://zdl_411437734.coding.me/gradle/pack.gradle)
+    
+```
+apply from:"./pack.gradle"
+或者
+apply from:"https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack.gradle"
+```
+3. 打包即可（~~）
+
+
+
 ### 配置文件
 ><font size="2">不想使用提供的在线的文件配置，请自行copy下面的内容放入自己的工程中 </font>
 >
@@ -48,6 +73,7 @@ Nexus仓库配置文件(简易版)[bintray.gradle](https://coding.net/u/zdl_4114
 
 Sonarqube配置文件[sonarqube.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sonarqube.gradle)  [下载](http://zdl_411437734.coding.me/gradle/sonarqube.gradle)
 
+pack配置文件[pack.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack.gradle)  [下载](http://zdl_411437734.coding.me/gradle/pack.gradle)
 
 
 ###联系我们
