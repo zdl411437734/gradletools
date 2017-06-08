@@ -6,7 +6,7 @@
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
         
         
-2. 在项目（module）build.gradle文件中配置
+2. 在项目（module）build.gradle文件中配置(默认已配置)
 
         //解决javadoc中文问题
         tasks.withType(Javadoc) {
