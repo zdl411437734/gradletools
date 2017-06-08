@@ -10,6 +10,12 @@ def ARTIFACT_ID = properties.getProperty("artifact_id")
 def VERSION_NAME = properties.getProperty("version_name")
 def GROUP_ID = properties.getProperty("group_id")
 
+//解决javadoc中文问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
 
 uploadArchives {
     repositories {
