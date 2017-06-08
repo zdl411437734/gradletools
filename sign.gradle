@@ -1,0 +1,34 @@
+
+def keyPwd = "${ext.keyPassword}"
+def keyFilePath = "${ext.keyFilePath}"
+def keySPwd = "${ext.storePassword}"
+def alias = "${ext.keyAlias}"
+
+android{
+    signingConfigs {
+
+            debugConfig {
+                keyPassword keyPwd
+                storeFile file(keyFilePath)
+                storePassword keySPwd
+                keyAlias alias
+            }
+
+            releaseConfig {
+                keyPassword keyPwd
+                storeFile file(keyFilePath)
+                storePassword keySPwd
+                keyAlias alias
+            }
+    }
+}
+
+//buildTypes {
+//    release {
+//        signingConfig signingConfigs.releaseConfig
+//    }
+//
+//    debug {
+//        signingConfig signingConfigs.debugConfig
+//    }
+//}

@@ -17,7 +17,7 @@ apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/nexusBint
 apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/artifactBintry.gradle'
 ```
 4. 执行相关命令即可
-    
+
 ```
 gradle uploadArchives （nexus仓库）
 或者
@@ -34,7 +34,7 @@ gradle assembleRelease artifactoryPublish (artifactory仓库)
 > <font size="2">经常打包apk，有一个困扰，怎么修改打包后的名称，怎么区分打包的是release版本还是debug版本，想了解请继续看</font>
 
 1. 在项目的buil.gradle文件配置打包的版本和输出的名称
-    
+
 ```
 //打包APK根据不同的环境打包不同的名称
 ext{
@@ -44,16 +44,59 @@ ext{
 //productName 打包出来的名称
 //versionName 打包显示版本号
 ```
-2. 引入packe.gradle文件[下载packe.gradle](http://zdl_411437734.coding.me/gradle/pack.gradle)
-    
+2 . 引入packe.gradle文件[下载packe.gradle](http://zdl_411437734.coding.me/gradle/pack.gradle)
+
 ```
 apply from:"./pack.gradle"
 或者
 apply from:"https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack.gradle"
 ```
-3. 打包即可（~~）
+3 . 打包即可（~~）
 
+### sign（签名）使用
+> <font size="2">有时候，在集成第三方时候，需要我们输入签名，在开发中和发布中一般默认都是2个keystroe，在这种情况下，开发很不方便，不断要打包成正式包才能测试，为了解决这个问题，我们配置gradle在开发时就使用正式签名开发，想了解请继续看</font>
 
+1. 在项目的buil.gradle文件配置打包的版本和输出的名称
+
+```
+//打包APK根据不同的环境打包不同的名称
+ext{
+    productName = "CommonProject"
+    versionName = "2.0.1"
+    keyPassword = "android"
+    keyFilePath = "/Users/jason/Documents/keystore/android.keystore"
+    storePassword = "android"
+    keyAlias = "android"
+}
+
+//productName 打包出来的名称
+//versionName 打包显示版本号
+//keyPassword 密码
+//keyFilePath 正式全路径
+//storePassword 密码
+//keyAlias 别名
+```
+2 . 引入sign.gradle文件[下载sign.gradle](http://zdl_411437734.coding.me/gradle/sign.gradle)
+
+```
+apply from:"./sign.gradle"
+或者
+apply from:"https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sign.gradle"
+```
+3 . 配置项目中build.gradle文件
+
+```
+buildTypes {
+    release {
+        signingConfig signingConfigs.releaseConfig
+    }
+
+    debug {
+        signingConfig signingConfigs.debugConfig
+    }
+}
+//在 android{}中配置buildTypes
+```
 
 ### 配置文件
 ><font size="2">不想使用提供的在线的文件配置，请自行copy下面的内容放入自己的工程中 </font>
@@ -80,5 +123,4 @@ pack配置文件[pack.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/ra
 Email:411437734@qq.com
 
 个人博客：[http://www.etongwl.com](http://www.etongwl.com)
-
 
