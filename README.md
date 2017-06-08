@@ -118,6 +118,9 @@ Sonarqube配置文件[sonarqube.gradle](https://coding.net/u/zdl_411437734/p/gra
 
 pack配置文件[pack.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack.gradle)  [下载](http://zdl_411437734.coding.me/gradle/pack.gradle)
 
+sign配置文件[sign.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sign.gradle)  [下载](http://zdl_411437734.coding.me/gradle/sign.gradle)
+
+
 
 ###联系我们
 Email:411437734@qq.com
