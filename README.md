@@ -7,7 +7,7 @@
 > 欢迎各位小伙伴们来砸场，喜欢请star下...</font>
 
 ### 私有仓库使用
-1. 在下载config.properties文件放到工厂根目录（和gradle.properties同级）
+1. 在下载config.properties文件放到工厂根目录（和gradle.properties同级,如果放到Module目录下 请试用xxxM.gradle文件替换下面的xxx.gradle文件,M的意见是Module）
 2. 如果使用Artifactory仓库配置工程build.gradle文件请看详细文件
 3. 在项目build.gradle文件中使用
 

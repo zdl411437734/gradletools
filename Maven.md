@@ -183,8 +183,8 @@ gradle uploadArchives
 执行成功就可以看到项目arr在你的私有仓库中。
 
 ### config.properties文件说明
-config.properties文件存放到工程更目录和gradle.propterties同目录下
-内容如下
+config.properties文件存放到工程跟目录和gradle.propterties同目录下
+内容如下(如果放到Module目录下 请试用xxxM.gradle文件,M的意见是Module)
 
 ```
 ## Project-wide Gradle settings.

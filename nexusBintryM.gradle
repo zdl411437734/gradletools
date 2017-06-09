@@ -1,0 +1,55 @@
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
+
+
+Properties properties = new Properties();
+properties.load(project.file('config.properties').newDataInputStream());
+def MAVEN_LOCAL_PATH =properties.getProperty("nexus_contextUrl")
+def USER =properties.getProperty("nexus_user")
+def PWD =properties.getProperty("nexus_password")
+def ARTIFACT_ID = properties.getProperty("artifact_id")
+def VERSION_NAME = properties.getProperty("version_name")
+def GROUP_ID = properties.getProperty("group_id")
+
+//解决javadoc中文问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url:MAVEN_LOCAL_PATH ){
+                authentication(userName: USER, password:PWD)
+            }
+            pom.project {
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION_NAME
+                packaging 'aar'
+            }
+        }
+    }
+}
