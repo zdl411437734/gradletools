@@ -21,6 +21,16 @@ android{
                 keyAlias alias
             }
     }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.releaseConfig
+        }
+
+        debug {
+            signingConfig signingConfigs.debugConfig
+        }
+    }
 }
 
 //buildTypes {

@@ -95,8 +95,10 @@ buildTypes {
         signingConfig signingConfigs.debugConfig
     }
 }
-//在 android{}中配置buildTypes
+//在 android{}中配置buildTypes (可以不用配置了)
 ```
+
+文中aplly from 和ext 配置在 andorid标签上面,防止部分内容提醒没有发现属性。
 
 ### 配置文件
 ><font size="2">不想使用提供的在线的文件配置，请自行copy下面的内容放入自己的工程中 </font>
