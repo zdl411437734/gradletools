@@ -123,8 +123,13 @@ pack配置文件[pack.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/ra
 sign配置文件[sign.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sign.gradle)  [下载](http://zdl_411437734.coding.me/gradle/sign.gradle)
 
 
+### Android 发布库到Jcenter
 
-###联系我们
+[详细使用文档](https://coding.net/u/zdl_411437734/p/gradle/git/blob/master/Jcenter.md)
+
+
+### 联系我们
+
 Email:411437734@qq.com
 
 个人博客：[http://www.etongwl.com](http://www.etongwl.com)

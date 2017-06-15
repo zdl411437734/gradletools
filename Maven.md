@@ -281,5 +281,6 @@ allprojects {
 项目中就可以正常使用了
 
 
+
 个人博客：[使用Artifactory搭建本地maven仓库](http://www.etongwl.com/blogphp/archives/1266.html)
 

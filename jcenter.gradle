@@ -1,0 +1,115 @@
+// 添加到工程中的build.gradle文件
+//classpath 'com.github.dcendents:android-maven-gradle-plugin:latest.release'
+//classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+//
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+
+Properties properties = new Properties();
+properties.load(project.file('config.properties').newDataInputStream());
+def BINTRAY_USERNAME =properties.getProperty("bintray.username")
+def BINTRAY_APIKEY =properties.getProperty("bintray.apikey")
+def ARTIFACT_ID = properties.getProperty("artifact_id")
+def VERSION_NAME = properties.getProperty("version.name")
+def VERSION_DESC = properties.getProperty("version.desc")
+def VERSION_VCSTAG = properties.getProperty("version.vcsTag")
+def GROUP_ID = properties.getProperty("group_id")
+def siteUrl = properties.getProperty("siteUrl")
+def gitUrl = properties.getProperty("gitUrl")
+def id = properties.getProperty("dev.id")
+def devName = properties.getProperty("dev.name")
+def devEmail = properties.getProperty("dev.email")
+
+
+
+group = GROUP_ID
+version = VERSION_VCSTAG
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name ARTIFACT_ID
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id  id
+                        name devName
+                        email devEmail
+                    }
+                }
+
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+
+        }
+    }
+}
+
+
+
+bintray {
+    user = BINTRAY_USERNAME   //读取 local.properties 文件里面的 bintray.user 登录用户名。
+    key = BINTRAY_APIKEY   //读取 local.properties 文件里面的 bintray.apikey
+    configurations = ['archives']
+    pkg {
+        //这里的repo值必须要和你创建Maven仓库的时候的名字一样
+        repo = "maven"
+        //发布到JCenter上的项目名字
+        name = ARTIFACT_ID
+         //项目官网地址
+        websiteUrl = siteUrl
+        //指定项目git地址
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true //是否是公开项目。
+        version {
+                    name = VERSION_NAME //版本名称
+                    desc = VERSION_DESC //版本描述
+                    released  =new Date() //上传过程中如果此处报错，可以注释掉此句
+                    vcsTag = VERSION_VCSTAG //版本
+                }
+    }
+}
+
+//解决javadoc中文问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+}
+
+//gradle bintrayUpload
