@@ -17,7 +17,7 @@ def VERSION_VCSTAG = properties.getProperty("version.vcsTag")
 def GROUP_ID = properties.getProperty("group_id")
 def siteUrl = properties.getProperty("siteUrl")
 def gitUrl = properties.getProperty("gitUrl")
-def id = properties.getProperty("dev.id")
+def devId = properties.getProperty("dev.id")
 def devName = properties.getProperty("dev.name")
 def devEmail = properties.getProperty("dev.email")
 
@@ -42,7 +42,7 @@ install {
 
                 developers {
                     developer {
-                        id  id
+                        id  devId
                         name devName
                         email devEmail
                     }
