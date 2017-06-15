@@ -7,7 +7,7 @@ apply plugin: 'com.jfrog.bintray'
 
 
 Properties properties = new Properties();
-properties.load(project.rootProject.file('config.properties').newDataInputStream());
+properties.load(project.file('config.properties').newDataInputStream());
 def BINTRAY_USERNAME =properties.getProperty("bintray.username")
 def BINTRAY_APIKEY =properties.getProperty("bintray.apikey")
 def ARTIFACT_ID = properties.getProperty("artifact_id")
