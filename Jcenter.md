@@ -164,4 +164,4 @@
 
 4、在项目中执行
 
-    gradle bintrayUpload
+    gradle assembleRelease  bintrayUpload

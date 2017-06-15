@@ -112,4 +112,4 @@ artifacts {
     archives androidJavadocsJar
 }
 
-//gradle bintrayUpload
+//gradle assembleRelease  bintrayUpload
