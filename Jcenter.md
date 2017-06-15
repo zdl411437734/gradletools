@@ -5,6 +5,11 @@
     classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
 
+    查询最新插件替换
+    插件地址
+    https://github.com/dcendents/android-maven-gradle-plugin
+    gradle插件地址
+    http://jcenter.bintray.com/com/jfrog/bintray/gradle/gradle-bintray-plugin/
 
 
 2、在项目build.gradle中添加
@@ -130,7 +135,7 @@
 
      # 上传到Jcenter配置
     bintray.username= bintray注册的用户名
-    bintray.apikey= 文章开头获取的 apikey
+    bintray.apikey= bintray 中 apikey
     artifact_id =
     group_id =
     siteUrl =
@@ -139,7 +144,7 @@
     dev.name =
     dev.email =
     version.name =
-    ersion.desc =
+    version.desc =
     version.vcsTag =
 
     #例如
@@ -153,7 +158,7 @@
     #dev.name = 开发者名称
     #dev.email = 开发者email
     #version.name = 版本名称-一般写版本号"1.0.0"
-    #ersion.desc = 版本描述
+    #version.desc = 版本描述
     #version.vcsTag =  版本标签一般写 版本号"1.0.0"
 
 
