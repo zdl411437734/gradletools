@@ -62,8 +62,8 @@ install {
 
 
 bintray {
-    user = BINTRAY_USERNAME   //读取 local.properties 文件里面的 bintray.user 登录用户名。
-    key = BINTRAY_APIKEY   //读取 local.properties 文件里面的 bintray.apikey
+    user = BINTRAY_USERNAME   //读取 config.properties 文件里面的 bintray.user 登录用户名。
+    key = BINTRAY_APIKEY   //读取 config.properties 文件里面的 bintray.apikey
     configurations = ['archives']
     pkg {
         //这里的repo值必须要和你创建Maven仓库的时候的名字一样
