@@ -51,6 +51,14 @@ apply from:"./pack.gradle"
 或者
 apply from:"https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack.gradle"
 ```
+
+> Gradle 3.0以上需要修改
+> 1. variant.outputs.each到 variant.outputs.all
+> 2. output.outputFile = new File(outputFile.parent, fileName)修改为 outputFileName = fileName
+>直接使用
+> apply from:"https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack3.gradle"
+
+
 3 . 打包即可（~~）
 
 ### sign（签名）使用
