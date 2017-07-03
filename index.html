@@ -291,7 +291,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 <h3 id="toc_2">私有仓库使用</h3>
 
 <ol>
-<li>在下载config.properties文件放到工厂根目录(和gradle.properties同级,如果放到Module目录下 请试用xxxM.gradle文件替换下面的xxx.gradle文件,M的意见是Module）</li>
+<li>在下载config.properties文件放到工厂根目录（和gradle.properties同级,如果放到Module目录下 请试用xxxM.gradle文件替换下面的xxx.gradle文件,M的意见是Module）</li>
 <li>如果使用Artifactory仓库配置工程build.gradle文件请看详细文件</li>
 <li>在项目build.gradle文件中使用</li>
 </ol>
@@ -343,6 +343,16 @@ ext{
 apply from:&quot;https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack.gradle&quot;
 </code></pre>
 
+<blockquote>
+<p>下载 pace.gradle文件  在Gradle 3.0以上使用需要修改<br/>
+1. variant.outputs.each到 variant.outputs.all<br/>
+2. output.outputFile = new File(outputFile.parent, fileName)修改为 outputFileName = fileName</p>
+
+<p>或者直接使用</p>
+
+<p>apply from:&quot;<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack3.gradle">https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/pack3.gradle</a>&quot;</p>
+</blockquote>
+
 <p>3 . 打包即可（~~）</p>
 
 <h3 id="toc_5">sign（签名）使用</h3>
@@ -391,8 +401,10 @@ apply from:&quot;https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sign
         signingConfig signingConfigs.debugConfig
     }
 }
-//在 android{}中配置buildTypes
+//在 android{}中配置buildTypes (可以不用配置了)
 </code></pre>
+
+<p>文中aplly from 和ext 配置在 andorid标签上面,防止部分内容提醒没有发现属性。</p>
 
 <h3 id="toc_6">配置文件</h3>
 
@@ -414,7 +426,11 @@ apply from:&quot;https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sign
 
 <p>sign配置文件<a href="https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/sign.gradle">sign.gradle</a>  <a href="http://zdl_411437734.coding.me/gradle/sign.gradle">下载</a></p>
 
-<h3 id="toc_7">联系我们</h3>
+<h3 id="toc_7">Android 发布库到Jcenter</h3>
+
+<p><a href="https://coding.net/u/zdl_411437734/p/gradle/git/blob/master/Jcenter.md">详细使用文档</a></p>
+
+<h3 id="toc_8">联系我们</h3>
 
 <p>Email:<a href="mailto:411437734@qq.com">411437734@qq.com</a></p>
 
