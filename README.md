@@ -142,5 +142,5 @@ sign配置文件[sign.gradle](https://coding.net/u/zdl_411437734/p/gradle/git/ra
 
 Email:411437734@qq.com
 
-个人博客：[http://www.etongwl.com](http://www.etongwl.com)
+个人博客：[http://www.zdltech.com](http://www.zdltech.com)
 
