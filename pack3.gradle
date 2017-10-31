@@ -22,7 +22,7 @@ android{
 
     //配置自定义打包名称
     applicationVariants.all { variant ->
-        variant.outputs.each { output ->
+        variant.outputs.all { output ->
             def outputFile = output.outputFile
             def fileName
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
@@ -33,7 +33,8 @@ android{
                     variant.mergedFlavor.versionName = getVersionName()+"."+releaseTime()
                     fileName = "${productName}_${variant.mergedFlavor.versionName}_debug.apk"
                 }
-                output.outputFile = new File(outputFile.parent, fileName)
+                //output.outputFile = new File(outputFile.parent, fileName)
+                outputFileName = fileName
             }
         }
     }
