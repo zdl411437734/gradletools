@@ -6,6 +6,18 @@
 > <font size="2">每次创建私有项目都需要配置gradle文件，没什么技术含量，还要多劳动（程序员就是懒），为了能方便使用，才有了本仓库的诞生。
 > 欢迎各位小伙伴们来砸场，喜欢请star下...</font>
 
+### 模块中maven仓库使用
+1. 下周configMavenM.properties文件放到library（模块）中的根目录和build.gradle同级
+2. 在模块中的build.gradle文件中使用(或者下载mavenBintryM.gradle文件和build.gradle同级)
+```
+apply from:'https://coding.net/u/zdl_411437734/p/gradle/git/raw/master/mavenBintryM.gradle'
+    或者
+apply from:'./mavenBintryM.gradle'
+```
+3. 执行命令即可
+```
+gradle uploadArchives （nexus仓库）
+```
 ### 私有仓库使用
 1. 在下载config.properties文件放到工厂根目录（和gradle.properties同级,如果放到Module目录下 请试用xxxM.gradle文件替换下面的xxx.gradle文件,M的意见是Module）
 2. 如果使用Artifactory仓库配置工程build.gradle文件请看详细文件
